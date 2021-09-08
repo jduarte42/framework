@@ -1,17 +1,17 @@
 var src = `https://jsonplaceholder.typicode.com/`;
 var page = "_page=1",
-  limit = "_limit=10";
+    limit = "_limit=10";
 var pages = 100 / 20;
 
 function getPosts() {
-  fetch(`${src}posts?${page}&${limit}`)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      let result = ``;
-      data.forEach((posts) => {
-        result += `<div class="post-wrapper">
+    fetch(`${src}posts?${page}&${limit}`)
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            let result = ``;
+            data.forEach((posts) => {
+                result += `<div class="post-wrapper">
         <div class="post-content">
           <div class="post">
             <p>Id: ${posts.id}</p>
@@ -21,34 +21,32 @@ function getPosts() {
         </div>
       </div>
 			`;
-        document.getElementById("posts").innerHTML = result;
-      });
-    })
-    .then(() => {
-      let step = '';
-      let page = 0;
-  
-        for (var i = 1; i <= 10; i++) {
-          page++;
-            step += 
-            `<li><a onmouseover="pagination()" val="https://jsonplaceholder.typicode.com/posts?_page=${page}&${limit}">${i}</a></li>`;
-          
-        }
-        document.getElementById('pagination').innerHTML = step;
-  
-      })
-}
-function searchPosts() {
-  let searchValue = document.getElementById("searchValue").value;
+                document.getElementById("posts").innerHTML = result;
+            });
+        })
+        .then(() => {
+            let step = "";
+            let page = 0;
 
-  fetch(`https://jsonplaceholder.typicode.com/posts?q=${searchValue}`)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      let result = ``;
-      data.forEach((posts) => {
-        result += `<div class="post-wrapper">
+            for (var i = 1; i <= 10; i++) {
+                page++;
+                step += `<li><a onmouseover="pagination()" val="https://jsonplaceholder.typicode.com/posts?_page=${page}&${limit}">${i}</a></li>`;
+            }
+            document.getElementById("pagination").innerHTML = step;
+        });
+}
+
+function searchPosts() {
+    let searchValue = document.getElementById("searchValue").value;
+
+    fetch(`https://jsonplaceholder.typicode.com/posts?q=${searchValue}`)
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            let result = ``;
+            data.forEach((posts) => {
+                result += `<div class="post-wrapper">
         <div class="post-content">
           <div class="post">
             <p>Id: ${posts.id}</p>
@@ -59,19 +57,20 @@ function searchPosts() {
        
       </div>
 			`;
-        document.getElementById("posts").innerHTML = result;
-      });
-    })
+                document.getElementById("posts").innerHTML = result;
+            });
+        });
 }
+
 function getalbums() {
-  fetch(`${src}albums?${page}&${limit}`)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      let result = ``;
-      data.forEach((albums) => {
-        result += `<div class="post-wrapper">
+    fetch(`${src}albums?${page}&${limit}`)
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            let result = ``;
+            data.forEach((albums) => {
+                result += `<div class="post-wrapper">
         <div class="post-content">
           <div class="post">
             <p>ID:${albums.id}</p>
@@ -80,34 +79,32 @@ function getalbums() {
         </div>
       </div>
 			`;
-        document.getElementById("albums").innerHTML = result;
-      });
-    })
-    .then(() => {
-      let step = '';
-      let page = 0;
-  
-        for (var i = 1; i <= 10; i++) {
-          page++;
-            step += 
-            `<li><a onmouseover="paginationalbums()" val="https://jsonplaceholder.typicode.com/albums?_page=${page}&${limit}">${i}</a></li>`;
-          
-        }
-        document.getElementById('paginationalbums').innerHTML = step;
-  
-      })
-}
-function searchalbums() {
-  let searchValue = document.getElementById("searchValue").value;
+                document.getElementById("albums").innerHTML = result;
+            });
+        })
+        .then(() => {
+            let step = "";
+            let page = 0;
 
-  fetch(`https://jsonplaceholder.typicode.com/albums?q=${searchValue}`)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      let result = ``;
-      data.forEach((albums) => {
-        result += `<div class="post-wrapper">
+            for (var i = 1; i <= 10; i++) {
+                page++;
+                step += `<li><a onmouseover="paginationalbums()" val="https://jsonplaceholder.typicode.com/albums?_page=${page}&${limit}">${i}</a></li>`;
+            }
+            document.getElementById("paginationalbums").innerHTML = step;
+        });
+}
+
+function searchalbums() {
+    let searchValue = document.getElementById("searchValue").value;
+
+    fetch(`https://jsonplaceholder.typicode.com/albums?q=${searchValue}`)
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            let result = ``;
+            data.forEach((albums) => {
+                result += `<div class="post-wrapper">
         <div class="post-content">
           <div class="post">
             <p>Id: ${albums.id}</p>
@@ -116,19 +113,20 @@ function searchalbums() {
         </div>
       </div>
 			`;
-        document.getElementById("albums").innerHTML = result;
-      });
-    })
-  }
+                document.getElementById("albums").innerHTML = result;
+            });
+        });
+}
+
 function getto_do() {
-  fetch(`${src}todos?${page}&${limit}`)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      let result = ``;
-      data.forEach((to_do) => {
-        result += `<div class="post-wrapper">
+    fetch(`${src}todos?${page}&${limit}`)
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            let result = ``;
+            data.forEach((to_do) => {
+                result += `<div class="post-wrapper">
         <div class="post-content">
           <div class="post">
             <p>Id User: ${to_do.userId}</p>
@@ -137,34 +135,33 @@ function getto_do() {
             <p>Complete: ${to_do.completed}</p>
           </div>
         </div>
-      </div>`; 
-        document.getElementById("to_do").innerHTML = result;
-      });
-    })
-    .then(() => {
-      let step = '';
-      let page = 0;
-  
-        for (var i = 1; i <= 20; i++) {
-          page++;
-            step += 
-            `<li><a onmouseover="paginationtodo()" val="https://jsonplaceholder.typicode.com/todos?_page=${page}&${limit}">${i}</a></li>`;
-        }
-        document.getElementById('paginationtodo').innerHTML = step;
-  
-      })
-}
-function searchto_do() {
-  let searchValue = document.getElementById("searchValue").value;
+      </div>`;
+                document.getElementById("to_do").innerHTML = result;
+            });
+        })
+        .then(() => {
+            let step = "";
+            let page = 0;
 
-  fetch(`https://jsonplaceholder.typicode.com/todos?q=${searchValue}`)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      let result =``;
-      data.forEach((to_do) => {
-        result += `<div class="post-wrapper">
+            for (var i = 1; i <= 20; i++) {
+                page++;
+                step += `<li><a onmouseover="paginationtodo()" val="https://jsonplaceholder.typicode.com/todos?_page=${page}&${limit}">${i}</a></li>`;
+            }
+            document.getElementById("paginationtodo").innerHTML = step;
+        });
+}
+
+function searchto_do() {
+    let searchValue = document.getElementById("searchValue").value;
+
+    fetch(`https://jsonplaceholder.typicode.com/todos?q=${searchValue}`)
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            let result = ``;
+            data.forEach((to_do) => {
+                result += `<div class="post-wrapper">
         <div class="post-content">
           <div class="post">
             <p>Id User: ${to_do.userId}</p>
@@ -175,24 +172,25 @@ function searchto_do() {
         </div>
       </div>
 			`;
-        document.getElementById("to_do").innerHTML = result;
-      });
-    });
+                document.getElementById("to_do").innerHTML = result;
+            });
+        });
 }
-function pagination() {
-  var button = document.querySelectorAll("a");
-  for (var i = 0; i < button.length; i++) {
-    button[i].addEventListener("click", function (e) {
-      var href = e.target.getAttribute("val");
 
-      fetch(href)
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          let result = ``;
-          data.forEach((posts) => {
-            result += `<div class="post-wrapper">
+function pagination() {
+    var button = document.querySelectorAll("a");
+    for (var i = 0; i < button.length; i++) {
+        button[i].addEventListener("click", function(e) {
+            var href = e.target.getAttribute("val");
+
+            fetch(href)
+                .then((res) => {
+                    return res.json();
+                })
+                .then((data) => {
+                    let result = ``;
+                    data.forEach((posts) => {
+                        result += `<div class="post-wrapper">
             <div class="post-content">
               <div class="post">
                 <p>Id: ${posts.id}</p>
@@ -203,26 +201,27 @@ function pagination() {
            
           </div>
           `;
-            document.getElementById("posts").innerHTML = result;
-          });
+                        document.getElementById("posts").innerHTML = result;
+                    });
+                });
         });
-    });
-  }
+    }
 }
-function paginationtodo() {
-  var button = document.querySelectorAll("a");
-  for (var i = 0; i < button.length; i++) {
-    button[i].addEventListener("click", function (e) {
-      var href = e.target.getAttribute("val");
 
-      fetch(href)
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          let result = ``;
-          data.forEach((to_do) => {
-            result += `<div class="post-wrapper">
+function paginationtodo() {
+    var button = document.querySelectorAll("a");
+    for (var i = 0; i < button.length; i++) {
+        button[i].addEventListener("click", function(e) {
+            var href = e.target.getAttribute("val");
+
+            fetch(href)
+                .then((res) => {
+                    return res.json();
+                })
+                .then((data) => {
+                    let result = ``;
+                    data.forEach((to_do) => {
+                        result += `<div class="post-wrapper">
             <div class="post-content">
               <div class="post">
                 <p>Id User: ${to_do.userId}</p>
@@ -233,26 +232,27 @@ function paginationtodo() {
             </div>
           </div>
           `;
-            document.getElementById("to_do").innerHTML = result;
-          });
+                        document.getElementById("to_do").innerHTML = result;
+                    });
+                });
         });
-    })
-  }
+    }
 }
-function paginationalbums() {
-  var button = document.querySelectorAll("a");
-  for (var i = 0; i < button.length; i++) {
-    button[i].addEventListener("click", function (e) {
-      var href = e.target.getAttribute("val");
 
-      fetch(href)
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          let result = ``;
-          data.forEach((albums) => {
-            result += `<div class="post-wrapper">
+function paginationalbums() {
+    var button = document.querySelectorAll("a");
+    for (var i = 0; i < button.length; i++) {
+        button[i].addEventListener("click", function(e) {
+            var href = e.target.getAttribute("val");
+
+            fetch(href)
+                .then((res) => {
+                    return res.json();
+                })
+                .then((data) => {
+                    let result = ``;
+                    data.forEach((albums) => {
+                        result += `<div class="post-wrapper">
             <div class="post-content">
               <div class="post">
                 <p>Id: ${albums.id}</p>
@@ -261,12 +261,13 @@ function paginationalbums() {
             </div>
           </div>
           `;
-            document.getElementById("albums").innerHTML = result;
-          });
+                        document.getElementById("albums").innerHTML = result;
+                    });
+                });
         });
-    });
-  }
+    }
 }
+
 function goBack() {
-  window.history.back()
+    window.history.back();
 }

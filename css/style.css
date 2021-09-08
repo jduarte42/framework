@@ -72,7 +72,7 @@ button:hover{
   background-color: rgba(203, 108, 247);
   color: white;
 }
-/*seach bar*/
+/*Seach bar*/
 .box{
   margin: 15px 440px;
   display: flex;
@@ -102,7 +102,6 @@ button:hover{
   display: flex;
   align-items: flex-start;
 }
-
 .post-wrapper .post-content p {
   margin-left: 1.6rem;
   word-break: break-word;
